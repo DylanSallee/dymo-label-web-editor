@@ -1,6 +1,9 @@
 # DYMO Label Web Editor
 A web-based editor for DYMO LabelWriter printers. Supports both legacy `.label` files and modern `.dymo` (DYMO Connect) files.
 
+## AI Disclaimer
+This project was created almost entirely by AI as a quick test project. It does not represent my coding style or ability.
+
 ## Hosting
 This project acts as a static website and is designed to be hosted on **GitHub Pages**.
 
@@ -30,8 +33,11 @@ Then open `http://localhost:8080` in your browser.
 
 ## Usage
 
-1. **Check Status** - The app will show a green indicator if the DYMO Web Service is connected
-// ... steps continue ...
+1. **Check Status** - The app will show a green indicator if the DYMO Web Service is connected.
+2. **Upload file** - Select a `.label` or `.dymo` file.
+3. **Fill in fields** - Fill in the form fields that appear.
+4. **Preview** - Click "Generate Preview" to see the label (updates automatically as you type).
+5. **Print** - Select your printer, set quantity, and click "Print Labels".
 
 ## Creating Label Templates
 
@@ -46,13 +52,8 @@ Then open `http://localhost:8080` in your browser.
 - Ensure DYMO Connect or DYMO Label Software is installed
 - Check if the DYMO Web Service is running (look for icon in system tray/menu bar)
 - Try restarting the DYMO Web Service
-- Visit `https://127.0.0.1:41951/DYMO/DLS/Printing/Check` to test directly
 
 ### Certificate Errors
 - The DYMO Web Service uses a self-signed HTTPS certificate
 - This should work automatically if DYMO software installed correctly
 - If issues persist, try reinstalling DYMO Connect Software
-
-## License
-
-ISC
