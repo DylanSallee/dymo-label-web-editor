@@ -1,7 +1,8 @@
 # DYMO Label Web Editor
 A web-based editor for DYMO LabelWriter printers. Supports both legacy `.label` files and modern `.dymo` (DYMO Connect) files.
 
-> [!CAUTION] AI Disclaimer
+## AI Use Disclaimer
+> [!CAUTION]
 > This project was created almost entirely by AI as a quick test project. It does not represent my coding style or ability.
 
 
