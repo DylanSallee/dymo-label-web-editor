@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DYMO Label Editor</title>
+    <meta name="description" content="Upload, edit, and print DYMO labels from your browser">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container py-4">
+        <header class="mb-4">
+            <h1 class="h3"><i class="bi bi-printer me-2"></i>DYMO Label Editor</h1>
+            <p class="text-muted mb-0">Upload a .label file, edit fields, preview, and print</p>
+        </header>
+
+        <!-- Status Indicator -->
+        <div id="status-container" class="alert alert-secondary mb-4">
+            <i class="bi bi-hourglass-split me-2"></i>
+            <span id="status-text">Checking DYMO Web Service...</span>
+        </div>
+
+        <!-- Main Content -->
+        <div class="row g-4">
+            <!-- Left Column: Upload & Form -->
+            <div class="col-lg-6">
+                <!-- File Upload -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="bi bi-upload me-2"></i>Upload Label File
+                    </div>
+                    <div class="card-body">
+                        <input type="file" id="label-file" class="form-control" accept=".label,.dymo">
+                        <div class="form-text">Select a DYMO .label or .dymo file to load</div>
+                        <div id="file-error" class="text-danger mt-2" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Form -->
+                <div class="card" id="form-card" style="display: none;">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span><i class="bi bi-pencil-square me-2"></i>Edit Label Fields</span>
+                        <button type="button" id="clear-btn" class="btn btn-sm btn-outline-secondary">
+                            <i class="bi bi-x-circle me-1"></i>Clear
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <form id="label-form">
+                            <!-- Dynamic fields will be inserted here -->
+                        </form>
+                        <button type="button" id="preview-btn" class="btn btn-primary mt-3">
+                            <i class="bi bi-eye me-1"></i>Generate Preview
+                        </button>
+                    </div>
+                </div>
+
+                <!-- No Fields Message -->
+                <div id="no-fields-message" class="alert alert-info" style="display: none;">
+                    <i class="bi bi-info-circle me-2"></i>
+                    This label has no editable text fields.
+                </div>
+            </div>
+
+            <!-- Right Column: Preview & Print -->
+            <div class="col-lg-6">
+                <!-- Preview -->
+                <div class="card mb-4" id="preview-card" style="display: none;">
+                    <div class="card-header">
+                        <i class="bi bi-image me-2"></i>Label Preview
+                    </div>
+                    <div class="card-body text-center">
+                        <img id="preview-image" src="" alt="Label Preview" class="img-fluid border">
+                    </div>
+                </div>
+
+                <!-- Print Controls -->
+                <div class="card" id="print-card" style="display: none;">
+                    <div class="card-header">
+                        <i class="bi bi-printer me-2"></i>Print
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3 align-items-end">
+                            <div class="col-auto">
+                                <label for="printer-select" class="form-label">Printer</label>
+                                <select id="printer-select" class="form-select">
+                                    <option value="">Select printer...</option>
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <label for="print-quantity" class="form-label">Quantity</label>
+                                <input type="number" id="print-quantity" class="form-control" value="1" min="1"
+                                    max="100" style="width: 80px;">
+                            </div>
+                            <div class="col-auto">
+                                <button type="button" id="print-btn" class="btn btn-success">
+                                    <i class="bi bi-printer-fill me-1"></i>Print Labels
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/dymo.connect.framework.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
